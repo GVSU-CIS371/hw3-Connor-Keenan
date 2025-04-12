@@ -1,9 +1,18 @@
-import { createApp } from "vue";
+import { createApp } from "vue"
+import { createPinia } from "pinia"
 import "./styles/mug.scss";
-import { createPinia } from "pinia";
-import piniaPluginPersistedState from "pinia-plugin-persistedstate";
-import App from "./App.vue";
-const pinia = createPinia();
-pinia.use(piniaPluginPersistedState);
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate"
+import App from "./App.vue"
+import { useBeverageStore } from "./stores/beverageStore"
+import './firebase.ts'
 
-createApp(App).use(pinia).mount("#app");
+const app = createApp(App)
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+
+app.use(pinia)
+
+const store = useBeverageStore()
+store.init().then(() => {
+  app.mount("#app")
+})
