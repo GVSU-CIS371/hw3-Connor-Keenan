@@ -1,17 +1,18 @@
-import { getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  //   // COPY this from your Firebase Console
-  //   apiKey: "your-api-key-goes-here",
-  //   authDomain: "your-project-name-here.firebaseapp.com",
-  //   databaseURL: "https://your-project-name-here.firebaseio.com",
-  //   projectId: "your-project-name-here",
-  //   storageBucket: "your-project-name.appspot.com",
-  //   messagingSenderId: "xxxxxxxx",
+  apiKey: "AIzaSyAZXlKjFY2ThBApawyAQMIAAboTVDqZTWM",
+  authDomain: "cis371-fdbd9.firebaseapp.com",
+  projectId: "cis371-fdbd9",
+  storageBucket: "cis371-fdbd9.firebasestorage.app",
+  messagingSenderId: "1060827282790",
+  appId: "1:1060827282790:web:5b9c3543fa60414825dca7",
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export default db;
+export { app, db };

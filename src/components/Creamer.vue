@@ -1,18 +1,23 @@
 <template>
-  <div class="froth">
-    <div
-      v-for=" in 5"
-      class="foam"
-      :style="{ backgroundColor: beverageStore.currentCreamer?.color }"
-    ></div>
+  <div 
+    class="froth" 
+    :style="{ 
+      backgroundColor: beverageStore.currentCreamer?.color || 'transparent' 
+    }"
+  >
+    <div v-for="n in 5" :key="n" class="foam"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useBeverageStore } from "../stores/beverageStore";
-
 const beverageStore = useBeverageStore();
+
+defineProps<{
+  noSyrup?: boolean;
+}>();
 </script>
+
 <style lang="scss" scoped>
 .froth {
   overflow: visible;
@@ -22,6 +27,7 @@ const beverageStore = useBeverageStore();
   width: 100%;
   background-color: #c6c6c6;
   animation: pour-tea 2s 2s forwards;
+  transition: background-color 0.5s, transform 0.5s;
 }
 .foam {
   display: block;
@@ -30,6 +36,7 @@ const beverageStore = useBeverageStore();
   height: 40px;
   width: 40px;
   position: absolute;
+  transition: background 0.5s;
 }
 
 .foam:nth-child(1) {
