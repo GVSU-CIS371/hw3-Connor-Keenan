@@ -4,9 +4,7 @@ import {
   getFirestore, 
   collection, 
   getDocs,
-  addDoc,
-  query,
-  where
+  addDoc
 } from 'firebase/firestore';
 import { 
   BaseBeverageType, 

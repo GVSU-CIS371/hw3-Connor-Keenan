@@ -1,5 +1,10 @@
 <template>
-  <div class="syrup" :style="{ backgroundColor: beverageStore.currentSyrup.color }"></div>
+  <div 
+    class="syrup" 
+    :style="{ 
+      backgroundColor: beverageStore.currentSyrup?.color || 'transparent' 
+    }"
+  ></div>
 </template>
 
 <script setup lang="ts">

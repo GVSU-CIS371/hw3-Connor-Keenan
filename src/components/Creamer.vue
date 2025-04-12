@@ -2,8 +2,7 @@
   <div 
     class="froth" 
     :style="{ 
-      backgroundColor: beverageStore.currentCreamer.color, 
-      transform: noSyrup ? 'translateY(400%)' : 'translateY(350%)' 
+      backgroundColor: beverageStore.currentCreamer?.color || 'transparent' 
     }"
   >
     <div v-for="n in 5" :key="n" class="foam"></div>
